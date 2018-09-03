@@ -11,5 +11,6 @@ public interface EmployeeDAO {
 	public Employee updateEmployee(Employee employee);
 	public void deleteEmployee(Employee employee);
 	public Employee getEmployee(long empId);
+	public Employee getEmployeeByEmail(String email);
 	public List<Employee> getAllEmployees();
 }

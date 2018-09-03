@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,9 +38,22 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	@Transactional(readOnly=true)
 	public Employee getEmployee(long empId) {
 		String sql = "select emp from Employee emp where emp.employeeId="+empId;
+		System.out.println("testing sql "+sql);
 		try{
 			return (Employee) entityManager.createQuery(sql).getSingleResult();
 		}catch(Exception e){
+		}
+		return null;
+	}
+	@Transactional(readOnly=true)
+	public Employee getEmployeeByEmail(String email) {
+		System.out.println("testing "+email);
+		String sql = "select emp from Employee emp where emp.email='"+email+"'";
+		System.out.println("testing sql "+sql);
+		try{
+			return (Employee) entityManager.createQuery(sql).getSingleResult();
+		}catch(Exception e){
+			System.out.println("exception"+e.getMessage());
 		}
 		return null;
 	}

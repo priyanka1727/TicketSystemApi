@@ -65,10 +65,26 @@ public class EmployeeServiceImpl implements EmployeeService {
 		empDTO.setContact(emp.getContact());
 		return empDTO;
 	}
+	
+public EmployeeDTO getEmployeeByEmail(String email) {
+		
+		Employee emp =employeeDAO.getEmployeeByEmail(email);
+		System.out.println("emp "+emp.getFirstName());
+		EmployeeDTO empDTO = new EmployeeDTO();
+		empDTO.setUserName(emp.getUserName());
+		empDTO.setEmail(emp.getEmail());
+		empDTO.setFirstName(emp.getFirstName());
+		empDTO.setLastName(emp.getLastName());
+		empDTO.setPassword(emp.getPassword());
+		empDTO.setEmpId(emp.getEmployeeId());
+		empDTO.setContact(emp.getContact());
+		return empDTO;
+	}
 
 	public List<EmployeeDTO> getAllEmployees() {
 		
 		List<Employee> list = employeeDAO.getAllEmployees();
+		System.out.println("List "+list);
 		List<EmployeeDTO> dtoList  = new ArrayList<EmployeeDTO>();
 		for(Employee emp:list){
 			EmployeeDTO empDTO = new EmployeeDTO();
