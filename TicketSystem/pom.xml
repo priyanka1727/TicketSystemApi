@@ -26,6 +26,7 @@
         <configuration>
           <path>/</path>
         </configuration>
+        
       </plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -188,5 +189,66 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+		<!-- <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>kernel</artifactId>
+        <version>7.0.4</version>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>io</artifactId>
+        <version>7.0.4</version>
+         <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>layout</artifactId>
+        <version>7.0.4</version>
+         <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>forms</artifactId>
+        <version>7.0.4</version>
+         <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>pdfa</artifactId>
+        <version>7.0.4</version>
+         <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>pdftest</artifactId>
+        <version>7.0.4</version>
+         <scope>compile</scope>
+    </dependency> -->
+    <dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>itextpdf</artifactId>
+    <version>5.5.13</version>
+    
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.itextpdf/layout -->
+<dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>layout</artifactId>
+    <version>7.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.itextpdf.tool</groupId>
+    <artifactId>xmlworker</artifactId>
+    <version>5.5.13</version>
+</dependency>
+
+    
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.18</version>
+    </dependency>
 	</dependencies>
 </project>

@@ -69,6 +69,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 public EmployeeDTO getEmployeeByEmail(String email) {
 		
 		Employee emp =employeeDAO.getEmployeeByEmail(email);
+		if(emp != null) {
 		System.out.println("emp "+emp.getFirstName());
 		EmployeeDTO empDTO = new EmployeeDTO();
 		empDTO.setUserName(emp.getUserName());
@@ -79,14 +80,18 @@ public EmployeeDTO getEmployeeByEmail(String email) {
 		empDTO.setEmpId(emp.getEmployeeId());
 		empDTO.setContact(emp.getContact());
 		return empDTO;
+		}
+		else
+			return null;
 	}
 
 	public List<EmployeeDTO> getAllEmployees() {
 		
 		List<Employee> list = employeeDAO.getAllEmployees();
-		System.out.println("List "+list);
+		
 		List<EmployeeDTO> dtoList  = new ArrayList<EmployeeDTO>();
 		for(Employee emp:list){
+			System.out.println("List "+emp.getEmployeeId());
 			EmployeeDTO empDTO = new EmployeeDTO();
 			empDTO.setUserName(emp.getUserName());
 			empDTO.setEmail(emp.getEmail());

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gss.exceptions.EmployeeException;
+import com.gss.exceptions.CustomException;
 import com.gss.exceptions.ErrorResponse;
 import com.gss.rest.dto.EmployeeDTO;
 import com.gss.rest.dto.LoginDTO;
@@ -33,18 +33,18 @@ public class LoginController {
 			consumes="application/json",
 			produces="application/json"
 	)
-	public ResponseEntity<LoginDTO>  login(@RequestBody LoginDTO login) throws EmployeeException {
+	public ResponseEntity<LoginDTO>  login(@RequestBody LoginDTO login) throws CustomException {
 		LoginDTO emp;
 		System.out.println("calling login  method"+login.getEmail());
 		emp = loginService.login(login);
 		if(emp == null) {
-			throw new EmployeeException("No result found");
+			throw new CustomException("No result found");
 		}
 		return new ResponseEntity<LoginDTO>(emp, HttpStatus.OK);
 
 	}
 	
-	@ExceptionHandler(EmployeeException.class)
+	@ExceptionHandler(CustomException.class)
 	public ResponseEntity<ErrorResponse> exceptionHandler(Exception ex) {
 		ErrorResponse error = new ErrorResponse();
 		error.setErrorCode(HttpStatus.PRECONDITION_FAILED.value());
